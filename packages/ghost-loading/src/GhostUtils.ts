@@ -1,7 +1,19 @@
 import {createSingletonState} from "./utils/singleton";
 
-export const SHIMMER_REFRESH_RATE = 3.0;
-export const [use, get, set] = createSingletonState<boolean>(false);
+export type AnimateState = "playing" | "paused" | null;
+
+export const SHIMMER_ANIMATION_DUR = 1500;
+export const SHIMMER_PAUSE_DUR = 500;
+export const [useAnimate, getAnimate, setAnimate] = createSingletonState<AnimateState>(null);
+export const DEFAULT_BG_COLOR = "#cfcfcf";
+export const DEFAULT_SHIMMER_COLOR = "#e6e6e6";
+
+// Leader management
+export var leader: number | null = null;
+export const setLeader = (arg: number | null) => {
+    console.log(`set leader to ${arg}`)
+    leader = arg;
+}
 
 /*
 Approach 1 (leader election):

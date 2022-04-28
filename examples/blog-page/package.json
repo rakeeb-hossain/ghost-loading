@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "framer-motion": "^6.3.3",
     "ghost-loading": "^1.0.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
