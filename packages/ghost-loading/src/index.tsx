@@ -1,9 +1,4 @@
 import React from "react";
+import {createSingletonState} from "./utils/singleton";
 
-export interface GhostProps {
-
-}
-
-export const Ghost = (props: GhostProps) => {
-    
-}
+export default createSingletonState;
