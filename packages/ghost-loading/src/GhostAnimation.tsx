@@ -1,5 +1,5 @@
 import React from "react";
-import {AnimateState, SHIMMER_ANIMATION_DUR, SHIMMER_PAUSE_DUR} from "./GhostUtils";
+import {AnimateState, SHIMMER_ANIMATION_DUR, SHIMMER_PAUSE_DUR, TOTAL_DUR} from "./GhostUtils";
 import {motion} from "framer-motion";
 
 interface GhostAnimationProps {
@@ -19,7 +19,7 @@ const variants = {
     playing: {
         x: "100%",
         transition: {
-            duration: SHIMMER_ANIMATION_DUR/1000,
+            duration: SHIMMER_ANIMATION_DUR/1000.0,
         }
     }
 }

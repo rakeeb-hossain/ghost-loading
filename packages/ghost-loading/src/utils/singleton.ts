@@ -9,7 +9,7 @@ import React, {Dispatch, SetStateAction, useEffect, useState} from "react";
 export function createSingletonState<T>(initial: T): [() => T, () => T, (arg0: T) => void] {
     // Closure variables
     let _state: T = initial;
-    const _updates: Dispatch<SetStateAction<T>>[] = [];
+    let _updates: Dispatch<SetStateAction<T>>[] = [];
 
     const useSingletonState = () => {
         const [_, setState] = useState(_state);
@@ -19,9 +19,12 @@ export function createSingletonState<T>(initial: T): [() => T, () => T, (arg0: T
             _updates.push(setState);
 
             return () => {
-                const ind = _updates.indexOf(setState);
-                if (ind > -1)
-                    _updates.splice(ind);
+                _updates = _updates.filter(ds => ds !== setState);
+
+                // Why doesn't this work??
+                // const ind = _updates.indexOf(setState);
+                // if (ind > -1)
+                //     _updates.splice(ind);
             }
         }, []);
 
